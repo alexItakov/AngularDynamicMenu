@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Treeview</title>
+</head>
+<body ng-controller="AppCtrl">
+
+
+
+	<script type="text/ng-template" id="treeLevel.html">
+		<ul>
+			
+			<li ng-repeat="item in items">
+				{{item.text}}
+
+				<div ng-include="'treeLevel.html'" onload="items = item.children">
+
+
+				</div>
+
+
+
+			</li>
+
+		</ul>
+	</script>
+
+
+
+	<div ng-include="'treeLevel.html'">
+		
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>	
+	<script src="treeviewController.js"></script>
+</body>
+</html>
