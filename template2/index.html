@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head> 
+	<meta charset="UTF-8">
+	<title>Render Tree</title>
+</head>
+
+<style>
+	ul {
+		list-style: circle;
+	}
+	li {
+		margin-left: 20px;
+	}
+
+</style>
+<body>
+
+
+	<script type="text/ng-template"  id="tree_item_renderer.html">
+		{{data.name}}
+		{{nodeName}}
+		<input type="text" ng-model="nodeName">
+		<button ng-click="add(data)">Add node</button>
+		<button ng-click="delete(data)" ng-show="data.nodes.length > 0">Delete nodes</button>
+		<ul>
+			<li ng-repeat="data in data.nodes" ng-include="'tree_item_renderer.html'"></li>
+		</ul>
+	</script>
+
+	<ul  ng-controller="TreeController">
+		<li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
+	</ul>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<script src="controller.js"></script>
+	
+</body>
+</html> 

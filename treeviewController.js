@@ -5,7 +5,7 @@
 
 
 
- 	$scope.items = [
+ 	$scope.items = [ 
 
  	// 1st global object
  	{
